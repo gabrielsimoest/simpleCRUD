@@ -24,6 +24,7 @@ namespace simpleCRUD
         private MySqlConnection conn;
 
         private int ?id_selecionado = null;
+        private string? nome_selecionado = null;
 
         public Form1()
         {
@@ -63,39 +64,54 @@ namespace simpleCRUD
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
 
-
-                if(id_selecionado == null)
+                if (txtNome.Text == "")
                 {
-                    cmd.CommandText = "INSERT INTO cadastro (nome,sobrenome,email,telefone) " +
-                                  "VALUES (@nome,@sobrenome,@email,@telefone)";
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@sobrenome", txtSobrenome.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-                    cmd.Prepare();
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("O cadastro de " + txtNome.Text + " foi salvo com sucesso!",
-                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("O campo de NOME não pode ser enviado em branco ",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (txtEmail.Text == "")
+                {
+                    MessageBox.Show("O campo de E-MAIL pode ser enviado em branco ",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (txtTelefone.Text == "(    )       - ")
+                {
+                    MessageBox.Show("O campo de TELEFONE pode ser enviado em branco ",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    cmd.CommandText = "UPDATE cadastro SET " +
-                        "nome=@nome, sobrenome=@sobrenome, email=@email, telefone=@telefone " +
-                        "WHERE id=@id";
-                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-                    cmd.Parameters.AddWithValue("@sobrenome", txtSobrenome.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-                    cmd.Parameters.AddWithValue("@id", id_selecionado);
-                    cmd.Prepare();
-                    cmd.ExecuteNonQuery();
+                    if (id_selecionado == null)
+                    {
+                        cmd.CommandText = "INSERT INTO cadastro (nome,sobrenome,email,telefone) " +
+                                      "VALUES (@nome,@sobrenome,@email,@telefone)";
+                        cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                        cmd.Parameters.AddWithValue("@sobrenome", txtSobrenome.Text);
+                        cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                        cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                        cmd.Prepare();
+                        cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("O cadastro de " + txtNome.Text + " foi atualizado com sucesso!",
-                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("O cadastro de " + txtNome.Text + " foi salvo com sucesso!",
+                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        cmd.CommandText = "UPDATE cadastro SET " +
+                            "nome=@nome, sobrenome=@sobrenome, email=@email, telefone=@telefone " +
+                            "WHERE id=@id";
+                        cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                        cmd.Parameters.AddWithValue("@sobrenome", txtSobrenome.Text);
+                        cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                        cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                        cmd.Parameters.AddWithValue("@id", id_selecionado);
+                        cmd.Prepare();
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("O cadastro de " + txtNome.Text + " foi atualizado com sucesso!",
+                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-
-
                 func_resetarForm();
                 carregar_lista();
             }
@@ -119,14 +135,6 @@ namespace simpleCRUD
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             func_buscar();
-        }
-
-        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                func_buscar();
-            }
         }
 
         private void carregar_lista()

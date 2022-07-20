@@ -159,7 +159,7 @@
             this.listView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(747, 241);
+            this.listView.Size = new System.Drawing.Size(747, 254);
             this.listView.TabIndex = 33;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView_ItemSelectionChanged);
@@ -185,7 +185,6 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(222, 21);
             this.txtBuscar.TabIndex = 34;
-            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
             // btnNovo
             // 
@@ -201,7 +200,7 @@
             // txtTelefone
             // 
             this.txtTelefone.Location = new System.Drawing.Point(90, 99);
-            this.txtTelefone.Mask = "(00) 00000-0000";
+            this.txtTelefone.Mask = "( 00 ) 00000 - 0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(222, 21);
             this.txtTelefone.TabIndex = 36;
@@ -214,7 +213,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(627, 405);
+            this.label5.Location = new System.Drawing.Point(542, 96);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 14);
             this.label5.TabIndex = 38;
@@ -234,9 +233,11 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.CancelButton = this.btnBuscar;
             this.ClientSize = new System.Drawing.Size(774, 427);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
