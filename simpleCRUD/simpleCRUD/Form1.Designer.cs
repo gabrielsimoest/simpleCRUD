@@ -45,8 +45,9 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnNovo = new System.Windows.Forms.Button();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.SystemColors.Window;
-            this.btnExcluir.Location = new System.Drawing.Point(309, 168);
+            this.btnExcluir.Location = new System.Drawing.Point(308, 132);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(77, 22);
@@ -66,7 +67,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(684, 168);
+            this.btnBuscar.Location = new System.Drawing.Point(683, 132);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(77, 22);
@@ -78,7 +79,7 @@
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(31, 135);
+            this.Label4.Location = new System.Drawing.Point(30, 99);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(57, 15);
@@ -88,7 +89,7 @@
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(41, 106);
+            this.Label3.Location = new System.Drawing.Point(40, 70);
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(46, 15);
@@ -98,7 +99,7 @@
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(14, 77);
+            this.Label2.Location = new System.Drawing.Point(13, 41);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(75, 15);
@@ -108,7 +109,7 @@
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(42, 51);
+            this.Label1.Location = new System.Drawing.Point(41, 15);
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(44, 15);
@@ -117,7 +118,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(91, 103);
+            this.txtEmail.Location = new System.Drawing.Point(90, 67);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(222, 21);
@@ -126,7 +127,7 @@
             // 
             // txtSobrenome
             // 
-            this.txtSobrenome.Location = new System.Drawing.Point(91, 74);
+            this.txtSobrenome.Location = new System.Drawing.Point(90, 38);
             this.txtSobrenome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSobrenome.Name = "txtSobrenome";
             this.txtSobrenome.Size = new System.Drawing.Size(222, 21);
@@ -134,7 +135,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(91, 45);
+            this.txtNome.Location = new System.Drawing.Point(90, 9);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(222, 21);
@@ -142,7 +143,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(64, 168);
+            this.btnCadastrar.Location = new System.Drawing.Point(63, 132);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(77, 22);
@@ -154,7 +155,7 @@
             // listView
             // 
             this.listView.ContextMenuStrip = this.contextMenuStrip1;
-            this.listView.Location = new System.Drawing.Point(14, 197);
+            this.listView.Location = new System.Drawing.Point(13, 161);
             this.listView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
@@ -179,7 +180,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(456, 168);
+            this.txtBuscar.Location = new System.Drawing.Point(455, 132);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(222, 21);
@@ -188,7 +189,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(147, 168);
+            this.btnNovo.Location = new System.Drawing.Point(146, 132);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(77, 22);
@@ -199,30 +200,46 @@
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(91, 135);
+            this.txtTelefone.Location = new System.Drawing.Point(90, 99);
             this.txtTelefone.Mask = "(00) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(222, 21);
             this.txtTelefone.TabIndex = 36;
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(767, 81);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 21);
-            this.maskedTextBox1.TabIndex = 37;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(627, 405);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 14);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Feito por: Gabriel Simões";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Impact", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(356, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(352, 80);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "simpleCRUD";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(774, 450);
-            this.Controls.Add(this.maskedTextBox1);
+            this.ClientSize = new System.Drawing.Size(774, 427);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.txtBuscar);
@@ -238,7 +255,9 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.btnCadastrar);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "simpleCRUD";
             this.contextMenuStrip1.ResumeLayout(false);
@@ -266,7 +285,8 @@
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem toolStripMenuItem1;
         private MaskedTextBox txtTelefone;
-        private MaskedTextBox maskedTextBox1;
         private ErrorProvider errorProvider1;
+        private Label label5;
+        private Label label6;
     }
 }
