@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simpleCRUD", "simpleCRUD\simpleCRUD.csproj", "{3242DE13-4C60-4838-B5B1-02BE935F1B4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simpleCRUD", "simpleCRUD\simpleCRUD.csproj", "{3242DE13-4C60-4838-B5B1-02BE935F1B4A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{A9F41704-3E5D-429E-AFF9-63FD4C0C7337}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{3242DE13-4C60-4838-B5B1-02BE935F1B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3242DE13-4C60-4838-B5B1-02BE935F1B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3242DE13-4C60-4838-B5B1-02BE935F1B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9F41704-3E5D-429E-AFF9-63FD4C0C7337}.Debug|Any CPU.ActiveCfg = Debug
+		{A9F41704-3E5D-429E-AFF9-63FD4C0C7337}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
