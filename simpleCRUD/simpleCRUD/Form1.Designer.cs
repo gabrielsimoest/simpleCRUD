@@ -30,10 +30,9 @@
         {
             this.Label5 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.dgvDados = new System.Windows.Forms.DataGridView();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnExibir = new System.Windows.Forms.Button();
-            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
@@ -44,7 +43,8 @@
             this.txtSobrenome = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
+            this.listView = new System.Windows.Forms.ListView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Label5
@@ -63,18 +63,9 @@
             this.txtID.Size = new System.Drawing.Size(222, 23);
             this.txtID.TabIndex = 31;
             // 
-            // dgvDados
-            // 
-            this.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDados.Location = new System.Drawing.Point(25, 169);
-            this.dgvDados.Name = "dgvDados";
-            this.dgvDados.RowTemplate.Height = 25;
-            this.dgvDados.Size = new System.Drawing.Size(727, 269);
-            this.dgvDados.TabIndex = 30;
-            // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(661, 132);
+            this.btnExcluir.Location = new System.Drawing.Point(280, 168);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(77, 23);
             this.btnExcluir.TabIndex = 29;
@@ -83,25 +74,26 @@
             // 
             // btnExibir
             // 
-            this.btnExibir.Location = new System.Drawing.Point(578, 132);
+            this.btnExibir.Location = new System.Drawing.Point(197, 168);
             this.btnExibir.Name = "btnExibir";
             this.btnExibir.Size = new System.Drawing.Size(77, 23);
             this.btnExibir.TabIndex = 28;
             this.btnExibir.Text = "Exibir";
             this.btnExibir.UseVisualStyleBackColor = true;
             // 
-            // btnConsultar
+            // btnBuscar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(495, 132);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(77, 23);
-            this.btnConsultar.TabIndex = 27;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Location = new System.Drawing.Point(684, 168);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(77, 23);
+            this.btnBuscar.TabIndex = 27;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(412, 132);
+            this.btnEditar.Location = new System.Drawing.Point(114, 167);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(77, 23);
             this.btnEditar.TabIndex = 26;
@@ -174,7 +166,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(329, 132);
+            this.btnCadastrar.Location = new System.Drawing.Point(31, 168);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(77, 23);
             this.btnCadastrar.TabIndex = 17;
@@ -182,17 +174,33 @@
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
+            // listView
+            // 
+            this.listView.Location = new System.Drawing.Point(14, 197);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(747, 241);
+            this.listView.TabIndex = 33;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(456, 168);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(222, 23);
+            this.txtBuscar.TabIndex = 34;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 450);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.Label5);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.dgvDados);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnExibir);
-            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.Label4);
@@ -205,7 +213,6 @@
             this.Controls.Add(this.btnCadastrar);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +225,7 @@
         internal DataGridView dgvDados;
         internal Button btnExcluir;
         internal Button btnExibir;
-        internal Button btnConsultar;
+        internal Button btnBuscar;
         internal Button btnEditar;
         internal TextBox txtTelefone;
         internal Label Label4;
@@ -229,5 +236,7 @@
         internal TextBox txtSobrenome;
         internal TextBox txtNome;
         internal Button btnCadastrar;
+        private ListView listView;
+        internal TextBox txtBuscar;
     }
 }
