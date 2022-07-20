@@ -35,6 +35,8 @@ namespace simpleCRUD
             listView.Columns.Add("Sobrenome", 180, HorizontalAlignment.Left);
             listView.Columns.Add("E-mail", 180, HorizontalAlignment.Left);
             listView.Columns.Add("Telefone", 155, HorizontalAlignment.Left);
+
+            carregar_lista();
         }
 
 
@@ -64,6 +66,12 @@ namespace simpleCRUD
                 MessageBox.Show("O cadastro de " + txtNome.Text + " foi salvo com sucesso!",
                 "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                txtNome.Text = String.Empty;
+                txtEmail.Text = String.Empty;
+                txtSobrenome.Text = String.Empty;
+                txtTelefone.Text = String.Empty;
+
+                carregar_lista();
             }
             catch (MySqlException ex)
             {
@@ -87,18 +95,16 @@ namespace simpleCRUD
         {
             try
             {
-                string query = "'%" + txtBuscar.Text + "%'";
-
                 conn = new MySqlConnection(data_source);
-
-                string sql = "SELECT * FROM cadastro " +
-                            "WHERE nome LIKE " + query + "OR email LIKE" + query + "OR id LIKE" + query;
-
                 conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
 
-                MySqlCommand comando = new MySqlCommand(sql, conn);
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT * FROM cadastro WHERE nome LIKE @query OR email LIKE @query OR id LIKE @query";
+                cmd.Parameters.AddWithValue("@query", "%" + txtBuscar.Text + "%");
+                cmd.Prepare();
 
-                MySqlDataReader reader = comando.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
 
                 listView.Items.Clear();
 
@@ -113,15 +119,68 @@ namespace simpleCRUD
                         reader.GetString(4)
                     };
 
-                    var l_listview = new ListViewItem(row);
-
-                    listView.Items.Add(l_listview); 
+                    listView.Items.Add(new ListViewItem(row)); 
                 }
 
             }
-            catch(Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void carregar_lista()
+        {
+            try
+            {
+                conn = new MySqlConnection(data_source);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT * FROM cadastro ORDER BY id DESC";
+                cmd.Prepare();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                listView.Items.Clear();
+
+                while (reader.Read())
+                {
+                    string[] row =
+                    {
+                        reader.GetString(0),
+                        reader.GetString(1),
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4)
+                    };
+
+                    listView.Items.Add(new ListViewItem(row));
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
