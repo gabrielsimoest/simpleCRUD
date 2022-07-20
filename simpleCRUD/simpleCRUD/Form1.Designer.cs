@@ -43,6 +43,7 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Label5
@@ -150,17 +151,19 @@
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(77, 23);
             this.btnCadastrar.TabIndex = 17;
-            this.btnCadastrar.Text = "Novo";
+            this.btnCadastrar.Text = "Salvar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // listView
             // 
             this.listView.Location = new System.Drawing.Point(14, 197);
+            this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(747, 241);
             this.listView.TabIndex = 33;
             this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView_ItemSelectionChanged);
             // 
             // txtBuscar
             // 
@@ -169,11 +172,22 @@
             this.txtBuscar.Size = new System.Drawing.Size(222, 23);
             this.txtBuscar.TabIndex = 34;
             // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(147, 168);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(77, 23);
+            this.btnNovo.TabIndex = 35;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 450);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.Label5);
@@ -214,5 +228,6 @@
         internal Button btnCadastrar;
         private ListView listView;
         internal TextBox txtBuscar;
+        internal Button btnNovo;
     }
 }
