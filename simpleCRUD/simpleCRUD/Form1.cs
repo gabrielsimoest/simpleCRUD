@@ -46,21 +46,35 @@ namespace simpleCRUD
             try
             {
                 conn = new MySqlConnection(data_source);
-
-                string sql = "INSERT INTO cadastro (nome,sobrenome,email,telefone) " +
-                             "VALUES('" + txtNome.Text + "', '" + txtSobrenome.Text + "', '" + txtEmail.Text + "', '" + txtTelefone.Text + "') ";
-
-                MySqlCommand comando = new MySqlCommand(sql, conn);
-
                 conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
 
-                comando.ExecuteReader();
+                cmd.CommandText = "INSERT INTO cadastro (nome,sobrenome,email,telefone) " +
+                                  "VALUES (@nome,@sobrenome,@email,@telefone)";
+                
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@sobrenome", txtSobrenome.Text);
+                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                cmd.Prepare();
 
-                MessageBox.Show("Os dados de " + txtNome.Text + " foram salvos com sucesso: ");
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("O cadastro de " + txtNome.Text + " foi salvo com sucesso!",
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

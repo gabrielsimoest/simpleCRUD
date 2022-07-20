@@ -31,9 +31,7 @@
             this.Label5 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnExibir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
@@ -65,21 +63,12 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(280, 168);
+            this.btnExcluir.Location = new System.Drawing.Point(258, 168);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(77, 23);
             this.btnExcluir.TabIndex = 29;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
-            // 
-            // btnExibir
-            // 
-            this.btnExibir.Location = new System.Drawing.Point(197, 168);
-            this.btnExibir.Name = "btnExibir";
-            this.btnExibir.Size = new System.Drawing.Size(77, 23);
-            this.btnExibir.TabIndex = 28;
-            this.btnExibir.Text = "Exibir";
-            this.btnExibir.UseVisualStyleBackColor = true;
             // 
             // btnBuscar
             // 
@@ -90,15 +79,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(114, 167);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(77, 23);
-            this.btnEditar.TabIndex = 26;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
             // 
             // txtTelefone
             // 
@@ -166,11 +146,11 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(31, 168);
+            this.btnCadastrar.Location = new System.Drawing.Point(64, 168);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(77, 23);
             this.btnCadastrar.TabIndex = 17;
-            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.Text = "Novo";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
@@ -199,9 +179,7 @@
             this.Controls.Add(this.Label5);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnExibir);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label3);
@@ -224,9 +202,7 @@
         internal TextBox txtID;
         internal DataGridView dgvDados;
         internal Button btnExcluir;
-        internal Button btnExibir;
         internal Button btnBuscar;
-        internal Button btnEditar;
         internal TextBox txtTelefone;
         internal Label Label4;
         internal Label Label3;
