@@ -222,6 +222,8 @@ namespace simpleCRUD
                 txtSobrenome.Text = item.SubItems[2].Text;
                 txtEmail.Text = item.SubItems[3].Text;
                 txtTelefone.Text = item.SubItems[4].Text;
+
+                btnExcluir.Visible = true;
             }
         }
 
@@ -234,6 +236,65 @@ namespace simpleCRUD
             txtTelefone.Text = String.Empty;
 
             txtNome.Focus();
+
+            btnExcluir.Visible = false;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            excluir_registro();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            excluir_registro();
+        }
+
+        private void excluir_registro()
+        {
+            try
+            {
+                DialogResult conf = MessageBox.Show("Tem certeza que deseja excluir cadastro?",
+                    "Excluir registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (conf == DialogResult.Yes)
+                {
+                    conn = new MySqlConnection(data_source);
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+
+                    cmd.CommandText = "DELETE FROM cadastro WHERE id=@id";
+                    cmd.Parameters.AddWithValue("@id", id_selecionado);
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("O cadastro de " + txtNome.Text + " foi EXCLUIDO com sucesso!",
+                                    "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    carregar_lista();
+                    btnExcluir.Visible = false;
+                    id_selecionado = null;
+                    txtNome.Text = String.Empty;
+                    txtEmail.Text = String.Empty;
+                    txtSobrenome.Text = String.Empty;
+                    txtTelefone.Text = String.Empty;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

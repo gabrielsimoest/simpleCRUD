@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Label5 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtTelefone = new System.Windows.Forms.TextBox();
@@ -42,34 +41,23 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(64, 20);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(21, 15);
-            this.Label5.TabIndex = 32;
-            this.Label5.Text = "ID:";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(91, 16);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(222, 23);
-            this.txtID.TabIndex = 31;
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(258, 168);
+            this.btnExcluir.Location = new System.Drawing.Point(309, 168);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(77, 23);
             this.btnExcluir.TabIndex = 29;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Visible = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnBuscar
             // 
@@ -157,6 +145,7 @@
             // 
             // listView
             // 
+            this.listView.ContextMenuStrip = this.contextMenuStrip1;
             this.listView.Location = new System.Drawing.Point(14, 197);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
@@ -164,6 +153,20 @@
             this.listView.TabIndex = 33;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView_ItemSelectionChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(109, 22);
+            this.toolStripMenuItem1.Text = "Excluir";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // txtBuscar
             // 
@@ -190,8 +193,6 @@
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.listView);
-            this.Controls.Add(this.Label5);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtTelefone);
@@ -205,15 +206,13 @@
             this.Controls.Add(this.btnCadastrar);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        internal Label Label5;
-        internal TextBox txtID;
         internal DataGridView dgvDados;
         internal Button btnExcluir;
         internal Button btnBuscar;
@@ -229,5 +228,7 @@
         private ListView listView;
         internal TextBox txtBuscar;
         internal Button btnNovo;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem toolStripMenuItem1;
     }
 }
