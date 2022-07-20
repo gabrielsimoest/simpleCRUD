@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 using MySql.Data.MySqlClient;
 
@@ -16,12 +17,13 @@ namespace simpleCRUD
     public partial class Form1 : Form
     {
 
-        //CONEXÃO COM O BANCO DE DADOS
+                                           //CONEXÃO COM O BANCO DE DADOS
+        /*---------------------------------------------------------------------------------------------*/
         private string data_source = "datasource=localhost;username=root;password=12345;database=crud";
+        /*---------------------------------------------------------------------------------------------*/
         private MySqlConnection conn;
 
         private int ?id_selecionado = null;
-
 
         public Form1()
         {
@@ -42,9 +44,15 @@ namespace simpleCRUD
             carregar_lista();
         }
 
+        private void func_resetarForm()
+        {
+            id_selecionado = null;
+            txtNome.Text = String.Empty;
+            txtEmail.Text = String.Empty;
+            txtSobrenome.Text = String.Empty;
+            txtTelefone.Text = String.Empty;
+        }
 
-
-        //Criar Cadastro
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
@@ -87,12 +95,8 @@ namespace simpleCRUD
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                id_selecionado = null;
-                txtNome.Text = String.Empty;
-                txtEmail.Text = String.Empty;
-                txtSobrenome.Text = String.Empty;
-                txtTelefone.Text = String.Empty;
 
+                func_resetarForm();
                 carregar_lista();
             }
             catch (MySqlException ex)
@@ -112,53 +116,16 @@ namespace simpleCRUD
             }
         }
 
-        //Buscar na DB
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            try
+            func_buscar();
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                conn = new MySqlConnection(data_source);
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand();
-
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT * FROM cadastro WHERE nome LIKE @query OR email LIKE @query OR id LIKE @query";
-                cmd.Parameters.AddWithValue("@query", "%" + txtBuscar.Text + "%");
-                cmd.Prepare();
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                listView.Items.Clear();
-
-                while (reader.Read())
-                {
-                    string[] row =
-                    {
-                        reader.GetString(0),
-                        reader.GetString(1),
-                        reader.GetString(2),
-                        reader.GetString(3),
-                        reader.GetString(4)
-                    };
-
-                    listView.Items.Add(new ListViewItem(row)); 
-                }
-
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
-                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu: " + ex.Message,
-                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
+                func_buscar();
             }
         }
 
@@ -169,8 +136,8 @@ namespace simpleCRUD
                 conn = new MySqlConnection(data_source);
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand();
-
                 cmd.Connection = conn;
+
                 cmd.CommandText = "SELECT * FROM cadastro ORDER BY id DESC";
                 cmd.Prepare();
 
@@ -229,11 +196,7 @@ namespace simpleCRUD
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            id_selecionado = null;
-            txtNome.Text = String.Empty;
-            txtEmail.Text = String.Empty;
-            txtSobrenome.Text = String.Empty;
-            txtTelefone.Text = String.Empty;
+            func_resetarForm();
 
             txtNome.Focus();
 
@@ -273,11 +236,7 @@ namespace simpleCRUD
                                     "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     carregar_lista();
                     btnExcluir.Visible = false;
-                    id_selecionado = null;
-                    txtNome.Text = String.Empty;
-                    txtEmail.Text = String.Empty;
-                    txtSobrenome.Text = String.Empty;
-                    txtTelefone.Text = String.Empty;
+                    func_resetarForm();
                 }
             }
             catch (MySqlException ex)
@@ -295,6 +254,77 @@ namespace simpleCRUD
             {
                 conn.Close();
             }
+        }
+
+        private void func_buscar()
+        {
+            try
+            {
+                conn = new MySqlConnection(data_source);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT * FROM cadastro WHERE nome LIKE @query OR email LIKE @query OR id LIKE @query";
+                cmd.Parameters.AddWithValue("@query", "%" + txtBuscar.Text + "%");
+                cmd.Prepare();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                listView.Items.Clear();
+
+                while (reader.Read())
+                {
+                    string[] row =
+                    {
+                        reader.GetString(0),
+                        reader.GetString(1),
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4)
+                    };
+
+                    listView.Items.Add(new ListViewItem(row));
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                Regex reg = new Regex(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+                if (!reg.IsMatch(txtEmail.Text))
+                {
+                    errorProvider1.SetError(this.txtEmail, "Insira um E-mail valido");
+                }
+                else
+                {
+                    errorProvider1.Clear();
+                }
+            }
+
         }
     }
 }

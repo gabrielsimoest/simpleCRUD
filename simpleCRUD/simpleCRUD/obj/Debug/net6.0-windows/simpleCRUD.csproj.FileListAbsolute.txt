@@ -24,3 +24,4 @@ C:\Users\Gabriel\Desktop\github\simpleCRUD\simpleCRUD\simpleCRUD\obj\Debug\net6.
 C:\Users\Gabriel\Desktop\github\simpleCRUD\simpleCRUD\simpleCRUD\obj\Debug\net6.0-windows\simpleCRUD.pdb
 C:\Users\Gabriel\Desktop\github\simpleCRUD\simpleCRUD\simpleCRUD\obj\Debug\net6.0-windows\simpleCRUD.genruntimeconfig.cache
 C:\Users\Gabriel\Desktop\github\simpleCRUD\simpleCRUD\simpleCRUD\obj\Debug\net6.0-windows\ref\simpleCRUD.dll
+C:\Users\Gabriel\Desktop\github\simpleCRUD\simpleCRUD\simpleCRUD\obj\Debug\net6.0-windows\simpleCRUD.Properties.Resources.resources
