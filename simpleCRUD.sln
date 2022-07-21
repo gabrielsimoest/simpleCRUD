@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simpleCRUD", "simpleCRUD\simpleCRUD.csproj", "{3242DE13-4C60-4838-B5B1-02BE935F1B4A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "instalador_simpleCRUD", "Instalador\instalador_simpleCRUD\instalador_simpleCRUD.vdproj", "{666B4840-183B-4A95-B940-43B2AA6124CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{3242DE13-4C60-4838-B5B1-02BE935F1B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3242DE13-4C60-4838-B5B1-02BE935F1B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3242DE13-4C60-4838-B5B1-02BE935F1B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{666B4840-183B-4A95-B940-43B2AA6124CC}.Debug|Any CPU.ActiveCfg = Debug
+		{666B4840-183B-4A95-B940-43B2AA6124CC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

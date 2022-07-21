@@ -857,11 +857,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD\\simpleCRUD\\simpleCRUD.csproj",
+      "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj",
       "projectName": "simpleCRUD",
-      "projectPath": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD\\simpleCRUD\\simpleCRUD.csproj",
+      "projectPath": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj",
       "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD\\simpleCRUD\\obj\\",
+      "outputPath": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD_project\\simpleCRUD\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
