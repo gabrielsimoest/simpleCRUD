@@ -17,10 +17,9 @@ namespace simpleCRUD
     public partial class Form1 : Form
     {
 
-                                           //CONEXÃO COM O BANCO DE DADOS
-        /*---------------------------------------------------------------------------------------------*/
-        private string data_source = "datasource=localhost;username=root;password=12345;database=crud";
-        /*---------------------------------------------------------------------------------------------*/
+
+        private string data_source = "datasource=database-1.c7x9eh0evls2.sa-east-1.rds.amazonaws.com;username=admin;password=aws456123;database=crud";
+
         private MySqlConnection conn;
 
         private int ?id_selecionado = null;
