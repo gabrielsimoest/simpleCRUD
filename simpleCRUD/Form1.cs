@@ -18,7 +18,7 @@ namespace simpleCRUD
     {
 
 
-        private string data_source = "datasource=database-1.c7x9eh0evls2.sa-east-1.rds.amazonaws.com;username=admin;password=aws456123;database=crud";
+        private string data_source = "";
 
         private MySqlConnection conn;
 
