@@ -9,6 +9,13 @@ Este é um exemplo simples de um aplicativo CRUD desenvolvido em C# utilizando W
 Certifique-se de ter instalado:
 - Visual Studio (2022)
 
+## Tecnologias Utilizadas
+
+- C#
+- .NET Framework
+- Windows Forms
+- SqLite
+
 ## Como executar
 
 1. Faça o download ou clone este repositório.
