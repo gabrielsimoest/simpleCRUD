@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj": {}
+    "C:\\Users\\gabit\\OneDrive\\Documents\\GitHub\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj": {
+    "C:\\Users\\gabit\\OneDrive\\Documents\\GitHub\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj",
+        "projectUniqueName": "C:\\Users\\gabit\\OneDrive\\Documents\\GitHub\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj",
         "projectName": "simpleCRUD",
-        "projectPath": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj",
-        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabriel\\Desktop\\github\\simpleCRUD_project\\simpleCRUD\\obj\\",
+        "projectPath": "C:\\Users\\gabit\\OneDrive\\Documents\\GitHub\\simpleCRUD_project\\simpleCRUD\\simpleCRUD.csproj",
+        "packagesPath": "C:\\Users\\gabit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabit\\OneDrive\\Documents\\GitHub\\simpleCRUD_project\\simpleCRUD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -40,9 +40,17 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
-            "MySql.Data": {
+            "SQLite": {
               "target": "Package",
-              "version": "[8.0.29, )"
+              "version": "[3.13.0, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.118, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
             }
           },
           "imports": [
@@ -51,10 +59,29 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -63,7 +90,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

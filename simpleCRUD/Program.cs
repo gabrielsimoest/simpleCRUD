@@ -1,17 +1,18 @@
+using simpleCRUD.Services;
+
 namespace simpleCRUD
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            //Method to Create Sqlite Database
+            var verify = new CreateAndVerifyDb("DataSource=SimpleCrud.db");
+            verify.VerifyIfExistsDB();
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new SimpleCrud());
         }
     }
 }
